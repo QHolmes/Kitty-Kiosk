@@ -1,0 +1,305 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+}
+
+.icons{
+    -fx-font-family: "Font Awesome 5 Free Solid";
+    -fx-font-size: 34;
+    -fx-alignment: baseline-left;
+}
+
+.titleText{
+    -fx-font-family: "Belgium";
+    -fx-font-size: 72;
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+    -fx-fill: yellow;
+    -fx-effect: innershadow( three-pass-box , rgba(255,255,255,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.bars{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 0;
+    -fx-padding: 2;
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+    -fx-font-family: "Font Awesome 5 Free Solid";
+}
+
+.mainPane{
+    -fx-border-radius: 20 20 10 10;
+    -fx-background-radius: 20 20 10 10;
+    -fx-background-color: transparent;
+}
+
+.menuButton{
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-padding: 2 10 2 10;
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+    -fx-font-family: Belgium;
+    -fx-alignment: baseline-left;
+}
+
+.menuButton:hover {
+    -fx-border-color: blue;
+}
+
+.menuButton:pressed{
+    -fx-background-color: darkgray;
+}
+
+.menuButton:selected{
+    -fx-background-color: lightgrey;
+}
+
+.menuText{
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+    -fx-font-family: Belgium;
+}
+
+.alertField{
+    -fx-border-color: red;
+}
+
+/*
+   Text fields
+*/
+.checkTextField {
+    -fx-font-size: 20pt;
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.checkTextField:focused {
+    -fx-background-color: -fx-focus-color, white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+/*
+* Table
+* Modifyed DarkTheme
+* Author: Code Makery
+* http://code.makery.ch/library/javafx-8-tutorial/part4/
+*/
+
+/*Hide empty table message*/
+ui-datatable-empty-message {
+  display: none;
+}
+
+.table-view {
+    -fx-base: #ebf7fc;
+    -fx-control-inner-background: #ebf7fc;
+    -fx-background-color: #ebf7fc;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+    -fx-font-size: 12pt;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #def4fc;
+    -fx-border-color: black;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #def4fc;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+
+
+.table-view .column-header .label {
+    -fx-font-size: 18pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*
+ * Buttons
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
+.checkButton {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: transparent transparent black transparent;
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+    -fx-text-fill: black;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.checkButton:hover {
+    -fx-background-color: rgba(230, 230, 230, 10);
+    -fx-border-color: black;
+}
+
+.checkButton:pressed, .checkButton:default:hover:pressed {
+  -fx-background-color: #9e9e9e;
+  -fx-text-fill: #595959;
+}
+
+.checkButton:focused {
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.checkButton:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #cecccc;
+    -fx-text-fill: gray;
+}
+
+/*No Font Format*/
+.checkButtonNFF {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: transparent transparent black transparent;
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.checkButtonNFF:hover {
+    -fx-background-color: rgba(230, 230, 230, 10);
+    -fx-border-color: black;
+}
+
+.checkButtonNFF:pressed{
+  
+  -fx-background-color: -fx-focus-color;
+  /*-fx-text-fill: #595959;*/
+}
+
+.checkButtonNFF:focused {
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.checkButtonNFF:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #cecccc;
+    -fx-text-fill: gray;
+}
+
+/*
+ * Action Classes
+ */
+
+.actionControls {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 2px, 2px, 2px, 2px;
+    -fx-font-size: 12pt;
+}
+
+.actionLabel {
+   -fx-font-weight: bold;
+   -fx-font-size: 16pt; 
+}
+
+.actionCalander {
+  -fx-font-size: 12pt;   
+}
+
+.actionPane {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.actionText{
+    -fx-font-size: 12pt;
+    -fx-padding: 5 5 5 5;
+}
+
+.actionTitle{
+    -fx-font-size: 48px;
+    -fx-font-family: Belgium;
+    -fx-alignment: CENTER;
+}
+
+.actionSubtitle{
+    -fx-font-size: 28px;
+    -fx-font-family: Belgium;
+    -fx-alignment: CENTER;
+}
+
+/*
+ * Pin Pane
+ */
+
+.numberPad{
+    -fx-font-family: Belgium;
+    -fx-padding: 30;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.numberField{
+    -fx-font-size: 36px;
+    -fx-font-family: Belgium;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.numberField:focused {
+    -fx-background-color: -fx-focus-color, white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+
+.numberButton{
+    -fx-font-size: 28px;
+    -fx-font-family: Belgium;
+    -fx-alignment: CENTER;
+    -fx-max-width: 70px;
+    -fx-max-height: 70px;
+    -fx-min-width: 70px;
+    -fx-min-height: 70px;
+}
+
+.numberButtonPane{
+    -fx-alignment: CENTER;
+    -fx-spacing: 7px;
+}
+
+.numberButtonControl{
+    -fx-font-size: 24px;
+    -fx-font-family: "Font Awesome 5 Free Solid";
+    -fx-alignment: CENTER;
+    -fx-max-width: 70px;
+    -fx-max-height: 70px;
+    -fx-min-width: 70px;
+    -fx-min-height: 70px;
+}
+
+
+

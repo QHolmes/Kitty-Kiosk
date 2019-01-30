@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="171.0" prefWidth="220.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.TestController">
+  <children>
+    <VBox fx:id="box" layoutX="0.0" layoutY="0.0" prefHeight="171.0" prefWidth="220.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#handleButtonAction" text="Button" />
+        <TextField fx:id="field" prefWidth="200.0" />
+        <ComboBox fx:id="combo">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
