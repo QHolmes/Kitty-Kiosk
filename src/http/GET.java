@@ -63,12 +63,11 @@ public class GET {
                         reply = response.toString();
                         core.getLogger().log(Level.FINER, "GET call [{0}] returned un-successful, code [{1}].", new Object[] {APICalls, responseCode});
                         core.getLogger().log(Level.FINEST, "GET call [{0}] code [{1}] responce [{2}].", new Object[] {APICalls, responseCode, reply});
-                    }
 
-                    if(responseCode != 200){
-                        System.out.println(targetURL);
-                        //Bad Gateway
-                        if(responseCode == 502){
+                        
+                        core.getLogger().fine(targetURL);
+                        //Bad Gateway or Too many requests
+                        if(responseCode == 502 || responseCode == 429){
                             gate++;
                             timeout(gate, APICalls, core);
                         }else

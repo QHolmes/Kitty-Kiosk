@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.StampedLock;
 import java.util.logging.Level;
@@ -45,7 +46,7 @@ public class EntityInfo implements Serializable{
     public boolean filterFieldsByStatus;
     
     public Map<String, EntityFieldInfo> fields;
-    public ArrayList<String> fieldData;
+    public List<String> fieldData;
     public Calendar lastDataUpdate = null;
     public int maxEntityDataAge = 3600;
     
@@ -129,7 +130,7 @@ public class EntityInfo implements Serializable{
      * @param core
      * @return 
      */
-    public ArrayList<String> getFieldData(Core core){
+    public List<String> getFieldData(Core core){
         updateDataField(core, false);
         
         //If data is old, update first

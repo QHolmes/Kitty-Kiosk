@@ -13,7 +13,7 @@ import java.io.InvalidClassException;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.logging.Level;
-import javax.swing.JFileChooser;
+import static core.Config.DATA_DIR;
 
 /**
  * @author Quinten Holmes
@@ -23,7 +23,7 @@ public class Save {
     private static HashSet<String> saving = new HashSet();
     
 	public static void saveObject(Serializable obj, String objName, Core core){
-            String location = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Kitty Kiosk\\" + objName + ".ser";
+        String location = DATA_DIR.resolve(objName + ".ser").toString();
             
             if(saving.contains(location))
                 return;
@@ -42,9 +42,8 @@ public class Save {
                     core.getLogger().log(Level.FINER, "Saving core - {0}", location);
 		}catch (FileNotFoundException e){
                     //If the folder does not exist, create it and try again
-                    String fileLocation = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Kitty Kiosk";
-                    if(new File(fileLocation).mkdirs()){
-                         core.getLogger().log(Level.FINER, "Created save folder - {0}", fileLocation);
+                if(DATA_DIR.toFile().mkdirs()){
+                     core.getLogger().log(Level.FINER, "Created save folder - {0}", DATA_DIR);
                         saveObject(obj, objName, core);
                     }
                         
@@ -68,8 +67,7 @@ public class Save {
 	
 	public static Serializable loadObject(String objName, Core cor){
             Serializable obj = null;
-            String location = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "\\Kitty Kiosk\\" + objName +".ser";
-            
+            String location = DATA_DIR.resolve(objName + ".ser").toString();
             
             int i = 0;
             while (obj == null && i < 5){

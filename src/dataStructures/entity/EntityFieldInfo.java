@@ -8,7 +8,7 @@ package dataStructures.entity;
 import core.Core;
 import javafx.util.Pair;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -181,7 +181,7 @@ public final class EntityFieldInfo implements Serializable{
      * @return String[] of all values, could return null if there was an error.
      */
     public Pair<String[], String[]> getFieldData(Core core){
-        ArrayList<String> entitieData = entity.getFieldData(core);
+        List<String> entitieData = entity.getFieldData(core);
         if(entitieData == null)
             return null;
         

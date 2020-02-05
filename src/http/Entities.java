@@ -1,37 +1,33 @@
 package http;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import helperClasses.Save;
 import core.Core;
 import javafx.util.Pair;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static core.Config.RESULTS_LIMIT;
 
 /**
  * @author Quinten Holmes
  */
 public class Entities {
 	
+	
     public static Pair<String, Integer> getEntites(Core core) throws IOException {				
             return makeCall("entities", core, true);
     }
 
     public static Pair<String, Integer> getEntiteObjectsActions(Core core, int offset, String entityID) throws IOException {
-        String url = String.format("entities/%s/objects?offset=%d&limit=50&include=action_objects",
-                entityID, offset);
+        String url = String.format("entities/%s/objects?offset=%d&limit=%d&include=action_objects",
+                entityID, offset, RESULTS_LIMIT);
             return makeCall(url, core, true);
     }
     
     public static Pair<String, Integer> getEntiteObjects(Core core, int offset, String entityID) throws IOException {
-        String url = String.format("entities/%s/objects?offset=%d&limit=50",
-                entityID, offset);
+        String url = String.format("entities/%s/objects?offset=%d&limit=%d",
+                entityID, offset, RESULTS_LIMIT);
             return makeCall(url, core, true);
     }
 
@@ -79,7 +75,7 @@ public class Entities {
     public static String[] getListEntiteName(Core core, String ID) throws IOException{
             String[] entitesNames; 	
 
-            String url = String.format("entities/%s/objects?offset=0&limit=50", ID);
+            String url = String.format("entities/%s/objects?offset=0&limit=%d", ID, RESULTS_LIMIT);
             entitesNames = (String[]) core.getHTTPMap(url + "N");
 
 
@@ -95,7 +91,7 @@ public class Entities {
     public static String[] getListEntiteID(Core core, String ID) throws IOException{
             String[] entitesID; //new ArrayList<Pair<String, Integer>>()		
 
-            String url = String.format("entities/%s/objects?offset=0&limit=50", ID);
+            String url = String.format("entities/%s/objects?offset=0&limit=%d", ID, RESULTS_LIMIT);
             entitesID = (String[]) core.getHTTPMap(url + "I");
 
 
@@ -106,7 +102,7 @@ public class Entities {
     }
     //being replaced by getEntityData
     private static String[] getListEntites(Core core, String ID) throws IOException{			
-                    String url = String.format("https://login.assetpanda.com:443/v2/entities/%s/objects?offset=0&limit=50", ID);
+                    String url = String.format("https://login.assetpanda.com:443/v2/entities/%s/objects?offset=0&limit=%d", ID, RESULTS_LIMIT);
 
                     String[] entitesNames = null;
                     String[]  entitesID;
@@ -131,7 +127,7 @@ public class Entities {
                                             Offset++;					
                                     }
 
-                                    url = String.format("https://login.assetpanda.com:443/v2/entities/%s/objects?offset=%d&limit=50", ID, Offset);
+                                    url = String.format("https://login.assetpanda.com:443/v2/entities/%s/objects?offset=%d&limit=%d", ID, Offset, RESULTS_LIMIT);
 
                                     tempPair = GET.getAssetPanda(url, core);
                                     reply = new Pair<>(new JSONObject(tempPair.getKey()), tempPair.getValue());
@@ -139,21 +135,20 @@ public class Entities {
                                             array = reply.getKey().getJSONArray("objects");
                                     }
                                     else {
-                                            System.out.println(reply.getKey());
-                                            System.out.println(reply.getValue());
-                                            System.out.println(Offset + " Number " + number);
+                                            core.getLogger().fine(""+reply.getKey());
+                                            core.getLogger().fine(""+reply.getValue());
+                                            core.getLogger().fine(""+Offset + " Number " + number);
                                             return null;
                                     }
                             }
 
-                            url = String.format("entities/%s/objects?offset=0&limit=50", ID);
+                            url = String.format("entities/%s/objects?offset=0&limit=%d", ID, RESULTS_LIMIT);
                             core.addHTTPMap(url + "N", entitesNames);	
                             core.addHTTPMap(url + "I", entitesID);	
                     }else {
-                            System.out.println(reply.getKey());
-                            System.out.println(reply.getValue());
+                            core.getLogger().fine(""+reply.getKey());
+                            core.getLogger().fine(""+reply.getValue());
                     }
-                    System.out.println();
 
             return entitesNames;		
     }

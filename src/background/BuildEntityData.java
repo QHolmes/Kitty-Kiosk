@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.List;
+import core.Config;
 
 /**
  *
@@ -23,7 +25,7 @@ import org.json.JSONObject;
  */
 public class BuildEntityData {
     
-    public ArrayList<String> getEntityData(Core core, String entityID) throws IOException{
+    public List<String> getEntityData(Core core, String entityID) throws IOException{
         ArrayList<String> entityData = null;
 
         Pair<String, Integer> tempPair = Entities.getEntiteObjects(core, 0, entityID);
@@ -38,15 +40,15 @@ public class BuildEntityData {
             int offset = 0;
             entityData = new ArrayList<>(number); 
             
-            int threadNumber = number / 50;
+            int threadNumber = number / Config.RESULTS_LIMIT;
             
-            if(number % 50 > 0)
+            if(number % Config.RESULTS_LIMIT > 0)
                 threadNumber++;
             
             Thread th;
             for (int i = 0; i < threadNumber; i++) {
                 executor.execute(new EntityDataThread(entityID, offset, entityData, core));
-                offset += 50;
+                offset += Config.RESULTS_LIMIT;
             }
             
             
