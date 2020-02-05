@@ -46,7 +46,7 @@ import javafx.util.Pair;
 public class Core{        
     
     //Static vars
-	public final String VERSION = "Asset Panda: Kitty Kiosk v0.6 Beta";
+	public final String VERSION = "Asset Panda: Kitty Kiosk v0.7 Beta";
         public final int MAXCALLWAIT = 10000; //Max time to wait for a call to return in milliseconds
         private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     
