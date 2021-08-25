@@ -47,7 +47,7 @@ public class Core{
     
     //Static vars
 	public final String VERSION = "Asset Panda: Kitty Kiosk v0.6 Beta";
-        public final int MAXCALLWAIT = 10000; //Max time to wait for a call to return in milliseconds
+        public final int MAXCALLWAIT = 20000; //Max time to wait for a call to return in milliseconds
         private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     
     //Saved Vars
@@ -250,7 +250,6 @@ public class Core{
 	}
         
         
-        
         /**
          * Returns a Map of all selected actions. Selected actions will appear 
          * in the left hand menu.
@@ -433,7 +432,7 @@ public class Core{
             
             switch (coreInfo.getMaxDataAgeModifier()) {
                 case (3600):
-                    calendar.add(Calendar.HOUR, -(coreInfo.getMaxDataAge()));
+                    calendar.add(Calendar.HOUR_OF_DAY, -(coreInfo.getMaxDataAge()));
                     break;
                 case (60):
                     calendar.add(Calendar.MINUTE, -(coreInfo.getMaxDataAge()));
